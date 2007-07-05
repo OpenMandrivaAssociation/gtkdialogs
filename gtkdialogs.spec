@@ -1,16 +1,16 @@
 Name:		gtkdialogs
 Version:	2.2
-Release:	%mkrel 1
+Release:	%mkrel 2
 Source:		gtkdialogs-2.2.tar.bz2
 License:	GPL
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
-Summary:	Ready-to-use gtk+ dialog boxes
+Summary:	Ready-to-use GTK+ dialog boxes
 Provides:	gchooser gmessage xtest
 Group:		System/Configuration/Packaging
 BuildRequires:	gtk+2-devel
 
 %description
-Ready-to-use gtk+ dialog boxes:
+Ready-to-use GTK+ dialog boxes:
 - xtest lets you test if X is running or not
 - gmessage show a message and some buttons, it returns with the number of the
   pressed button
