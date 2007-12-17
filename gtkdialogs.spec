@@ -3,7 +3,6 @@ Version:	2.2
 Release:	%mkrel 2
 Source:		gtkdialogs-2.2.tar.bz2
 License:	GPL
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Summary:	Ready-to-use GTK+ dialog boxes
 Provides:	gchooser gmessage xtest
 Group:		System/Configuration/Packaging
