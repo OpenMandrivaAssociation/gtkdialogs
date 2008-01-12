@@ -1,6 +1,6 @@
 Name:		gtkdialogs
 Version:	2.2
-Release:	%mkrel 2
+Release:	%mkrel 3
 Source:		gtkdialogs-2.2.tar.bz2
 License:	GPL
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
