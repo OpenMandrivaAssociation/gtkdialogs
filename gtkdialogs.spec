@@ -1,7 +1,8 @@
 Name:		gtkdialogs
 Version:	2.2
 Release:	%mkrel 4
-Source:		gtkdialogs-2.2.tar.bz2
+Source:		%name-%version.tar.bz2
+Patch0:		gtkdialogs-2.2-fix-str-fmt.patch
 License:	GPL
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Summary:	Ready-to-use GTK+ dialog boxes
@@ -19,10 +20,11 @@ Ready-to-use GTK+ dialog boxes:
 
 %prep
 %setup -n %{name} -q
+%patch0 -p0
 
 %build
 make clean
-%make CFLAGS="$RPM_OPT_FLAGS"
+%make CFLAGS="%{optflags} %{?ldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
