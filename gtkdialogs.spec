@@ -1,6 +1,6 @@
 Name:		gtkdialogs
 Version:	2.2
-Release:	%mkrel 6
+Release:	%mkrel 7
 Source:		%name-%version.tar.bz2
 Patch0:		gtkdialogs-2.2-fix-str-fmt.patch
 License:	GPL
