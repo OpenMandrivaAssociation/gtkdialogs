@@ -27,11 +27,11 @@ make clean
 %make CFLAGS="%{optflags} %{?ldflags}"
 
 %install
-rm -rf $RPM_BUILD_ROOT
-make prefix=$RPM_BUILD_ROOT install
+rm -rf %{buildroot}
+make prefix=%{buildroot} install
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
