@@ -1,14 +1,16 @@
+Summary:	Ready-to-use GTK+ dialog boxes
 Name:		gtkdialogs
 Version:	2.2
-Release:	%mkrel 9
-Source:		%name-%version.tar.bz2
-Patch0:		gtkdialogs-2.2-fix-str-fmt.patch
+Release:	10
 License:	GPL
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
-Summary:	Ready-to-use GTK+ dialog boxes
-Provides:	gchooser gmessage xtest
 Group:		System/Configuration/Packaging
-BuildRequires:	gtk+2-devel
+Source:		%{name}-%{version}.tar.bz2
+Patch0:		gtkdialogs-2.2-fix-str-fmt.patch
+Patch1:		gtkdialogs-2.2-no-strip.patch
+Provides:	gchooser = %{version}-%{release}
+Provides:	gmessage = %{version}-%{release}
+Provides:	xtest = %{version}-%{release}
+BuildRequires:	pkgconfig(gtk+-2.0)
 
 %description
 Ready-to-use GTK+ dialog boxes:
@@ -21,79 +23,15 @@ Ready-to-use GTK+ dialog boxes:
 %prep
 %setup -n %{name} -q
 %patch0 -p0
+%patch1 -p1
 
 %build
 make clean
 %make CFLAGS="%{optflags} %{?ldflags}"
 
 %install
-rm -rf $RPM_BUILD_ROOT
-make prefix=$RPM_BUILD_ROOT install
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+make prefix=%{buildroot} install
 
 %files
-%defattr(-,root,root)
 %{_bindir}/*
-
-
-
-
-%changelog
-* Tue May 03 2011 Oden Eriksson <oeriksson@mandriva.com> 2.2-8mdv2011.0
-+ Revision: 664950
-- mass rebuild
-
-* Thu Dec 02 2010 Oden Eriksson <oeriksson@mandriva.com> 2.2-7mdv2011.0
-+ Revision: 605508
-- rebuild
-
-* Wed Mar 17 2010 Oden Eriksson <oeriksson@mandriva.com> 2.2-6mdv2010.1
-+ Revision: 522780
-- rebuilt for 2010.1
-
-* Wed Sep 02 2009 Christophe Fergeau <cfergeau@mandriva.com> 2.2-5mdv2010.0
-+ Revision: 425076
-- rebuild
-
-* Tue Apr 07 2009 Funda Wang <fwang@mandriva.org> 2.2-4mdv2009.1
-+ Revision: 365032
-- fix str fmt
-
-* Tue Jun 17 2008 Thierry Vignaud <tv@mandriva.org> 2.2-4mdv2009.0
-+ Revision: 221112
-- rebuild
-
-* Sat Jan 12 2008 Thierry Vignaud <tv@mandriva.org> 2.2-3mdv2008.1
-+ Revision: 150246
-- rebuild
-- kill re-definition of %%buildroot on Pixel's request
-
-  + Olivier Blin <oblin@mandriva.com>
-    - restore BuildRoot
-
-* Thu Jul 05 2007 Adam Williamson <awilliamson@mandriva.org> 2.2-2mdv2008.0
-+ Revision: 48481
-- rebuild for 2008
-
-
-* Mon Aug 28 2006 Pixel <pixel@mandriva.com>
-+ 2006-08-28 14:05:25 (58305)
-- move from /usr/X11R6/bin to /usr/bin
-
-* Mon Aug 28 2006 Pixel <pixel@mandriva.com>
-+ 2006-08-28 13:57:21 (58300)
-- Import gtkdialogs
-
-* Sun Jun 18 2006 Stefan van der Eijk <stefan@eijk.nu.lurtspam> 2.1-3
-- rebuild for png
-- %%mkrel
-
-* Thu Oct 13 2005 Pixel <pixel@mandriva.com> 2.1-2mdk
-- rebuild
-
-* Mon Feb 09 2004 Guillaume Cottenceau <gc@mandrakesoft.com> 2.1-1mdk
-- add gfilechooser
-- gmessage: allow to have a comma in buttons, when it's backslashed
 

@@ -1,0 +1,12 @@
+diff -urN gtkdialogs/Makefile gtkdialogs-patched/Makefile
+--- gtkdialogs/Makefile	2004-02-10 03:24:34.000000000 +1000
++++ gtkdialogs-patched/Makefile	2013-01-21 19:57:15.360087065 +1100
+@@ -14,7 +14,7 @@
+ 
+ install: all
+ 	install -d $(bindir)
+-	install -s $(GOALS) $(bindir)
++	install $(GOALS) $(bindir)
+ 
+ dis: clean
+ 	cd .. ; tar cfj $(NAME).tar.bz2 $(NAME)
