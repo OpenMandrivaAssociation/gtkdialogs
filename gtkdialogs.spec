@@ -2,9 +2,9 @@ Summary:	Ready-to-use GTK+ dialog boxes
 Name:		gtkdialogs
 Version:	2.2
 Release:	10
-License:	GPL
+License:	GPLv2
 Group:		System/Configuration/Packaging
-Source:		%{name}-%{version}.tar.bz2
+Source0:	%{name}-%{version}.tar.bz2
 Patch0:		gtkdialogs-2.2-fix-str-fmt.patch
 Patch1:		gtkdialogs-2.2-no-strip.patch
 Provides:	gchooser = %{version}-%{release}
@@ -22,15 +22,14 @@ Ready-to-use GTK+ dialog boxes:
 
 %prep
 %setup -n %{name} -q
-%patch0 -p0
-%patch1 -p1
+%apply_patches
 
 %build
 make clean
 %make CFLAGS="%{optflags} %{?ldflags}"
 
 %install
-make prefix=%{buildroot} install
+%makeinstall
 
 %files
 %{_bindir}/*
