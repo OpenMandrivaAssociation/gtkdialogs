@@ -1,7 +1,7 @@
 Summary:	Ready-to-use GTK+ dialog boxes
 Name:		gtkdialogs
 Version:	2.2
-Release:	11
+Release:	12
 License:	GPLv2
 Group:		System/Configuration/Packaging
 Source0:	%{name}-%{version}.tar.bz2
