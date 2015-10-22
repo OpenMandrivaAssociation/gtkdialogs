@@ -1,3 +1,5 @@
+%define _disable_lto 1
+
 Summary:	Ready-to-use GTK+ dialog boxes
 Name:		gtkdialogs
 Version:	2.2
