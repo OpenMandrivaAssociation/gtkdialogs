@@ -24,7 +24,7 @@ Ready-to-use GTK+ dialog boxes:
 
 %prep
 %setup -n %{name} -q
-%apply_patches
+%autopatch -p1
 
 %build
 make clean
