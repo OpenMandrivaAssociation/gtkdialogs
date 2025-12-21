@@ -12,6 +12,7 @@ Patch1:		gtkdialogs-2.2-no-strip.patch
 Provides:	gchooser = %{version}-%{release}
 Provides:	gmessage = %{version}-%{release}
 Provides:	xtest = %{version}-%{release}
+BuildRequires:	make
 BuildRequires:	pkgconfig(gtk+-2.0)
 
 %description
